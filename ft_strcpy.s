@@ -1,4 +1,4 @@
-;char *strcpy(char *restrict dst, const char *restrict src)
+; char *strcpy(char *restrict dst, const char *restrict src)
 
 global ft_strcpy
 

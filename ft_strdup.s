@@ -2,33 +2,24 @@
 
 global ft_strdup
 extern __errno_location
+extern ft_strlen
+extern ft_strcpy
 extern malloc
 
 section .text
 ft_strdup:
 	push	rbx
 	mov		rbx, rdi
-	xor		rcx, rcx
-.len_count:
-	mov		dl, [rbx + rcx]
-	test	dl, dl
-	jz		.alloc
-	inc		rcx
-	jmp		.len_count
-.alloc:
+	call	ft_strlen wrt ..plt
+	mov		rcx, rax
 	inc		rcx					; per il null-terminator
 	mov		rdi, rcx
 	call	malloc wrt ..plt
 	test	rax, rax
 	jz		.end
-	xor		rcx, rcx
-.while:
-	mov		dl, [rbx + rcx]
-	mov		[rax + rcx], dl
-	test	dl, dl
-	jz		.end
-	inc		rcx
-	jmp		.while
+	mov		rdi, rax
+	mov		rsi, rbx
+	call	ft_strcpy wrt ..plt
 .end:
 	pop		rbx
 	ret

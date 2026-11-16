@@ -1,4 +1,4 @@
-;size_t strlen(const char *s)
+; size_t strlen(const char *s)
 
 global ft_strlen
 
