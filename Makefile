@@ -21,10 +21,8 @@ $(NAME) : $(OBJECTS)
 	@echo "Compiling $(NAME)"
 	ar -rcs $(NAME) $(OBJECTS)
 
-test: fclean
+test: re
 	${CCC} ${CFLAGS} main.c -L. -lasm -o test
-	clear
-	./test
 
 clean: 
 	rm -f ${OBJECTS}
